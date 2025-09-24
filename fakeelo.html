@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake FACEIT ELO Widget</title>
+
+  <style>
+    :root{
+      --bg: rgba(0,0,0,0);   /* transparent background */
+      --card-bg: rgba(20,20,20,0.85);
+      --accent: #f39c12;     /* faceit-like orange */
+      --text: #ffffff;
+      --muted: #cfcfcf;
+      --radius: 12px;
+      --shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      font-family: Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    .card{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      background:var(--card-bg);
+      padding:10px 14px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      min-width:220px;
+      max-width:360px;
+      backdrop-filter: blur(6px);
+    }
+
+    .badge{
+      width:84px;
+      height:84px;
+      border-radius:50%;
+      background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:3px solid rgba(255,255,255,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.45), 0 0 18px rgba(243,156,18,0.08);
+    }
+
+    .badge .elo{
+      font-size:28px;
+      font-weight:700;
+      color:var(--text);
+      letter-spacing:0.6px;
+    }
+
+    .badge .mini{
+      position:absolute;
+      bottom:-10px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--accent);
+      padding:3px 8px;
+      color:#111;
+      font-weight:700;
+      font-size:11px;
+      border-radius:999px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.25);
+    }
+
+    .info{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .title{
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .subtitle{
+      font-size:18px;
+      color:var(--text);
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+
+    .meta{
+      font-size:12px;
+      color:#bdbdbd;
+      margin-top:6px;
+    }
+
+    @media (max-width:340px){
+      .card{ min-width:170px; gap:10px; }
+      .badge{ width:72px; height:72px; }
+      .badge .elo{ font-size:22px; }
+      .subtitle{ font-size:16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="widget">
+      <div class="badge">
+        <div class="elo" id="elo-number">9999</div>
+        <div class="mini" id="tier-label">PRO</div>
+      </div>
+
+      <div class="info">
+        <div class="title" id="player-label">YourName</div>
+        <div class="subtitle" id="sub-text">FAKE FACEIT ELO</div>
+        <div class="meta">Custom widget — not affiliated with FACEIT</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /********** CUSTOMIZE HERE **********/
+    const FAKE_ELO = 9999;           // change elo number
+    const PLAYER_NAME = "YourName";  // change player name
+    const BADGE_TEXT = "PRO";        // badge text (e.g., PRO, KING, etc.)
+    const SUBLINE = "FAKE FACEIT ELO"; // subtitle
+    /***********************************/
+
+    document.getElementById("elo-number").textContent = FAKE_ELO;
+    document.getElementById("player-label").textContent = PLAYER_NAME;
+    document.getElementById("tier-label").textContent = BADGE_TEXT;
+    document.getElementById("sub-text").textContent = SUBLINE;
