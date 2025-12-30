@@ -130,10 +130,10 @@
 
   <script>
     /********** CUSTOMIZE HERE **********/
-    const FAKE_ELO = 9999;           // change elo number
-    const PLAYER_NAME = "YourName";  // change player name
+    const FAKE_ELO = 4789;           // change elo number
+    const PLAYER_NAME = "♥PRIME | TwiZzy♥";  // change player name
     const BADGE_TEXT = "PRO";        // badge text (e.g., PRO, KING, etc.)
-    const SUBLINE = "FAKE FACEIT ELO"; // subtitle
+    const SUBLINE = "Team Spirit"; // subtitle
     /***********************************/
 
     document.getElementById("elo-number").textContent = FAKE_ELO;
